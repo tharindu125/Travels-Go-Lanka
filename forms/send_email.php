@@ -1,4 +1,6 @@
 <?php
+$data = json_decode(file_get_contents("php://input"), true);
+var_dump($data);
 if ($_SERVER["REQUEST_METHOD"] == "POST") { echo 'test';
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
