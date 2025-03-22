@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { echo 'test';
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tourMonth = htmlspecialchars($_POST["tourMonth"]);
     $tourDuration = htmlspecialchars($_POST["tourDuration"]);
     $requirements = htmlspecialchars($_POST["requirements"]);
-
+    echo 'test 2';
     // Website owner's email
     $to = "tharinduranaweera523@gmail.com"; // Replace with your actual email
     $subject = "New Tour Inquiry from $name";

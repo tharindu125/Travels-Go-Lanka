@@ -477,44 +477,28 @@
 
 </script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script>
     $(document).ready(function () {
         $("#tourForm").submit(function (event) {
             event.preventDefault(); // Prevent page reload
 
-            // $.ajax({
-            //     type: "POST",
-            //     url: "forms/send_email.php",
-            //     data: $(this).serialize(),
-            //     success: function (response) {
-            //         if (response.trim() === "success") {
-            //             $("#successMessage").fadeIn(); // Show success message
-            //             $("#tourForm")[0].reset(); // Clear the form
-            //             setTimeout(function () {
-            //                 $("#successMessage").fadeOut(); // Hide success message after 3 seconds
-            //             }, 3000);
-            //         } else {
-            //             alert("Failed to send your request. Please try again.");
-            //         }
-            //     }
-            // });
-
-            var formData = $("#tourForm").serialize();
-            console.log(formData); // Check if form data is properly serialized
-
             $.ajax({
                 type: "POST",
-                url: "https://www.travelsgolanka.com/forms/send_email.php",
-                data: formData,
-                success: function(response) {
-                    console.log("Response:", response);
-                },
-                error: function(xhr, status, error) {
-                    console.log("AJAX Error:", error);
+                url: "forms/send_email.php",
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.trim() === "success") {
+                        $("#successMessage").fadeIn(); // Show success message
+                        $("#tourForm")[0].reset(); // Clear the form
+                        setTimeout(function () {
+                            $("#successMessage").fadeOut(); // Hide success message after 3 seconds
+                        }, 3000);
+                    } else {
+                        alert("Failed to send your request. Please try again.");
+                    }
                 }
             });
-
         });
     });
 </script>
