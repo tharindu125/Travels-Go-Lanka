@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requirements = htmlspecialchars($_POST["requirements"]);
 
     // Website owner's email
-    $to = "your-email@example.com"; // Replace with your actual email
+    $to = "tharinduranaweera523@gmail.com"; // Replace with your actual email
     $subject = "New Tour Inquiry from $name";
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
