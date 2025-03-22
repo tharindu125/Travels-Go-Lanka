@@ -265,7 +265,7 @@
             
             <div class="col-lg-8">
               <div class="info">
-                <form id="tourForm">
+                <form action="send_email.php" method="POST">
                   <div class="mb-3">
                       <label for="name" class="form-label">Name *</label>
                       <input type="text" class="form-control" id="name" name="name" required>
@@ -329,20 +329,14 @@
           
                   <div class="mb-3">
                       <label for="requirements" class="form-label">Your requirements (No of adults & kids, Interests) *</label>
-                      <textarea class="form-control" id="requirements" name="requirements" rows="4"
-                        placeholder="E.g. - 2 adults, 2 children (3 and 5 years old). Interested in wildlife, nature, culture, and local life. Need minimum 3-night beach stay towards the end of the trip."
-                        required></textarea>
+                      <textarea class="form-control" id="requirements" name="requirements" rows="4" required></textarea>
                   </div>
           
                   <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-          
-                <!-- Success Message -->
-                <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
-                    Your request has been sent successfully!
-                </div>
+              </form>
               </div>
             </div>
+          
 
           </div>
         </div>
@@ -475,44 +469,4 @@
     once: false,    // Set to false for repeated animations on scroll
   });
 
-</script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#tourForm").submit(function (event) {
-            event.preventDefault(); // Prevent page reload
-
-            // $.ajax({
-            //     type: "POST",
-            //     url: "forms/send_email.php",
-            //     data: $(this).serialize(),
-            //     success: function (response) {
-            //         if (response.trim() === "success") {
-            //             $("#successMessage").fadeIn(); // Show success message
-            //             $("#tourForm")[0].reset(); // Clear the form
-            //             setTimeout(function () {
-            //                 $("#successMessage").fadeOut(); // Hide success message after 3 seconds
-            //             }, 3000);
-            //         } else {
-            //             alert("Failed to send your request. Please try again.");
-            //         }
-            //     }
-            // });
-
-            $.ajax({
-              type: "POST",
-              url: "https://www.travelsgolanka.com/forms/send_email.php",
-              data: JSON.stringify({ name: "John", email: "john@example.com" }),
-              contentType: "application/json",
-              success: function(response) {
-                  console.log("Response:", response);
-              },
-              error: function(xhr, status, error) {
-                  console.log("AJAX Error:", error);
-              }
-          });
-
-        });
-    });
 </script>

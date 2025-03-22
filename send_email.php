@@ -1,7 +1,5 @@
 <?php
-$data = json_decode(file_get_contents("php://input"), true);
-var_dump($data);
-if ($_SERVER["REQUEST_METHOD"] == "POST") { echo 'test';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
@@ -10,9 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { echo 'test';
     $tourMonth = htmlspecialchars($_POST["tourMonth"]);
     $tourDuration = htmlspecialchars($_POST["tourDuration"]);
     $requirements = htmlspecialchars($_POST["requirements"]);
-    echo 'test 2';
+
     // Website owner's email
-    $to = "tharinduranaweera523@gmail.com"; // Replace with your actual email
+    $to = "tharinduranaweera523@gmail.com"; // Replace with your email
     $subject = "New Tour Inquiry from $name";
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
@@ -30,9 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { echo 'test';
 
     // Send email
     if (mail($to, $subject, $message, $headers)) {
-        echo "success";
+        echo "<script>alert('Your request has been sent successfully!');</script>";
     } else {
-        echo "error";
+        echo "<script>alert('Failed to send your request. Please try again.'); window.history.back();</script>";
     }
+} else {
+    echo "<script>alert('Invalid request!'); window.history.back();</script>";
 }
 ?>
