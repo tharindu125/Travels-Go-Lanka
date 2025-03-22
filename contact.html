@@ -216,6 +216,15 @@
       <!-- Contact Section -->
       <section id="contact" class="contact section mt-5">
 
+        <div class="container mb-5" data-aos="fade">
+          <div class="col-lg-12">
+            <iframe style="width: 100%; height: 400px; border:0;" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15845.309673694637!2d80.02268119430467!3d6.851299389894074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25248424ef777%3A0x8f7ca8306642ce77!2sGodagama!5e0!3m2!1sen!2slk!4v1742230748963!5m2!1sen!2slk"
+              frameborder="0" allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
         <div class="container" data-aos="fade">
           <div class="row gy-5 gx-lg-5">
 
@@ -253,11 +262,86 @@
 
               </div>
             </div>
+            
             <div class="col-lg-8">
-              <iframe style="width: 100%; height: 400px; border:0;" 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15845.309673694637!2d80.02268119430467!3d6.851299389894074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25248424ef777%3A0x8f7ca8306642ce77!2sGodagama!5e0!3m2!1sen!2slk!4v1742230748963!5m2!1sen!2slk"
-                frameborder="0" allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
+              <div class="info">
+                <form id="tourForm">
+                  <div class="mb-3">
+                      <label for="name" class="form-label">Name *</label>
+                      <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+          
+                  <div class="row">
+                      <div class="col-md-6 mb-3">
+                          <label for="email" class="form-label">Email *</label>
+                          <input type="email" class="form-control" id="email" name="email" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                          <label for="phone" class="form-label">Phone Number (Optional)</label>
+                          <div class="input-group">
+                              <span class="input-group-text">🇱🇰</span>
+                              <input type="text" class="form-control" id="phone" name="phone" placeholder="071 234 5678">
+                          </div>
+                      </div>
+                  </div>
+          
+                  <div class="row">
+                      <div class="col-md-6 mb-3">
+                          <label for="accommodation" class="form-label">Accommodation type *</label>
+                          <select class="form-select" id="accommodation" name="accommodation" required>
+                              <option selected>Select</option>
+                              <option>Hotel</option>
+                              <option>Resort</option>
+                              <option>Guesthouse</option>
+                          </select>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                          <label for="budget" class="form-label">Budget without airfare - USD ($) *</label>
+                          <select class="form-select" id="budget" name="budget" required>
+                              <option selected>Select</option>
+                              <option>Below 500</option>
+                              <option>500 - 1000</option>
+                              <option>Above 1000</option>
+                          </select>
+                      </div>
+                  </div>
+          
+                  <div class="row">
+                      <div class="col-md-6 mb-3">
+                          <label for="tourMonth" class="form-label">Tour Month *</label>
+                          <select class="form-select" id="tourMonth" name="tourMonth" required>
+                              <option selected>Select</option>
+                              <option>January</option>
+                              <option>February</option>
+                              <option>March</option>
+                          </select>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                          <label for="tourDuration" class="form-label">Tour duration *</label>
+                          <select class="form-select" id="tourDuration" name="tourDuration" required>
+                              <option selected>Select</option>
+                              <option>3 Days</option>
+                              <option>5 Days</option>
+                              <option>7 Days</option>
+                          </select>
+                      </div>
+                  </div>
+          
+                  <div class="mb-3">
+                      <label for="requirements" class="form-label">Your requirements (No of adults & kids, Interests) *</label>
+                      <textarea class="form-control" id="requirements" name="requirements" rows="4"
+                        placeholder="E.g. - 2 adults, 2 children (3 and 5 years old). Interested in wildlife, nature, culture, and local life. Need minimum 3-night beach stay towards the end of the trip."
+                        required></textarea>
+                  </div>
+          
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+          
+                <!-- Success Message -->
+                <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+                    Your request has been sent successfully!
+                </div>
+              </div>
             </div>
 
           </div>
@@ -391,4 +475,30 @@
     once: false,    // Set to false for repeated animations on scroll
   });
 
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#tourForm").submit(function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            $.ajax({
+                type: "POST",
+                url: "forms/send_email.php",
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.trim() === "success") {
+                        $("#successMessage").fadeIn(); // Show success message
+                        $("#tourForm")[0].reset(); // Clear the form
+                        setTimeout(function () {
+                            $("#successMessage").fadeOut(); // Hide success message after 3 seconds
+                        }, 3000);
+                    } else {
+                        alert("Failed to send your request. Please try again.");
+                    }
+                }
+            });
+        });
+    });
 </script>
