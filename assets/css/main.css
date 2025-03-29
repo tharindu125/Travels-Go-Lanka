@@ -2411,11 +2411,11 @@ section,
   }
 
   .container .sidebar {
-    order: 1; /* Sidebar still first */
+    order: 2; /* Sidebar still first */
   }
 
   .container .col-lg-8 {
-    order: 2; /* Blog content second */
+    order: 1; /* Blog content second */
   }
 
   .footer .footer-contact p {
