@@ -1367,7 +1367,7 @@ section,
   font-weight: 600;
   line-height: 1;
   transition: 0.3s;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: rgba(141, 124, 14, 0.887);
 }
 
 .recent-posts .post-item .readmore i {
@@ -2447,4 +2447,12 @@ section,
   
   .blog-posts-2 .section-title p {
     font-size: 20px;
+  }
+
+  .packege_content {
+    min-height: 80px;
+  }
+
+  .post-content hr {
+    background-color: #07451e;
   }
