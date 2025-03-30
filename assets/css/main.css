@@ -2423,7 +2423,7 @@ section,
   }
 
   .footer-links {
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }
 
   .social-links {
@@ -2455,4 +2455,24 @@ section,
 
   .post-content hr {
     background-color: #07451e;
+  }
+
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 769px) {
+    .carousel-inner .carousel-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .blog-details .article {
+      background-color: var(--surface-color);
+      padding: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
   }
