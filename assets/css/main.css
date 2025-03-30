@@ -2466,7 +2466,7 @@ section,
   @media (max-width: 769px) {
     .carousel-inner .carousel-item img {
       width: 100%;
-      height: 100px;
+      height: 250px;
       object-fit: cover;
     }
 
