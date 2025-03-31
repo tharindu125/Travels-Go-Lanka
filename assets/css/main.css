@@ -2477,3 +2477,12 @@ section,
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
   }
+
+  .tout_package_btn {
+    padding: 5px 8px 5px 8px;
+    border: 2px solid rgb(0, 187, 255);
+    color: rgb(0, 0, 0);
+    background-color: rgba(143, 237, 241, 0.478);
+    border-radius: 10px;
+    
+  }
