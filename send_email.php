@@ -1,5 +1,13 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Load Composer's autoloader
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Retrieve form data safely
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
@@ -9,30 +17,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tourDuration = htmlspecialchars($_POST["tourDuration"]);
     $requirements = htmlspecialchars($_POST["requirements"]);
 
-    // Website owner's email
-    $to = "tharinduranaweera523@gmail.com"; // Replace with your email
-    $subject = "New Tour Inquiry from $name";
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $mail = new PHPMailer(true);
 
-    // Email message
-    $message = "Name: $name\n";
-    $message .= "Email: $email\n";
-    $message .= "Phone: $phone\n";
-    $message .= "Accommodation Type: $accommodation\n";
-    $message .= "Budget: $budget\n";
-    $message .= "Tour Month: $tourMonth\n";
-    $message .= "Tour Duration: $tourDuration\n";
-    $message .= "Requirements:\n$requirements\n";
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp-relay.brevo.com'; // Brevo SMTP server
+        $mail->SMTPAuth = true;
+        $mail->Port = 587;
+        $mail->Username = '896607001@smtp-brevo.com'; 
+        $mail->Password = 'QDNRjgJ6s8vUpPqK'; // Change to your actual password
 
-    // Send email
-    if (mail($to, $subject, $message, $headers)) {
-        echo "<script>alert('Your request has been sent successfully!');</script>";
-    } else {
-        echo "<script>alert('Failed to send your request. Please try again.'); window.history.back();</script>";
+        // Email sender and recipients
+        $mail->setFrom('info@travelsgolanka.com', 'Travel Go Lanka');
+        $mail->addAddress('nawanjanaenda@gmail.com', 'Tharindu');
+        $mail->addAddress('travelsgolanka@gmail.com'); // Additional recipient
+        $mail->addReplyTo($email, $name); // User's email for reply
+
+        // Email subject
+        $mail->Subject = "New Tour Inquiry from $name";
+
+        // Load email template
+        $emailBody = file_get_contents('email_template.html');
+
+        // Replace placeholders with actual form data
+        $emailBody = str_replace('{{name}}', $name, $emailBody);
+        $emailBody = str_replace('{{email}}', $email, $emailBody);
+        $emailBody = str_replace('{{phone}}', $phone, $emailBody);
+        $emailBody = str_replace('{{accommodation}}', $accommodation, $emailBody);
+        $emailBody = str_replace('{{budget}}', $budget, $emailBody);
+        $emailBody = str_replace('{{tourMonth}}', $tourMonth, $emailBody);
+        $emailBody = str_replace('{{tourDuration}}', $tourDuration, $emailBody);
+        $emailBody = str_replace('{{requirements}}', nl2br($requirements), $emailBody);
+
+        // Email content
+        $mail->isHTML(true);
+        $mail->Body = $emailBody;
+
+        // Send email
+        if ($mail->send()) {
+            http_response_code(200);
+        } else {
+            http_response_code(500); 
+        }
+        
+    } catch (Exception $e) {
+        http_response_code(500); 
     }
 } else {
-    echo "<script>alert('Invalid request!'); window.history.back();</script>";
+    http_response_code(500); 
 }
+
 ?>
