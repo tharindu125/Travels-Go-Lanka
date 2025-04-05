@@ -26,12 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth = true;
         $mail->Port = 587;
         $mail->Username = '896607001@smtp-brevo.com'; 
-        $mail->Password = 'QDNRjgJ6s8vUpPqK'; // Change to your actual password
+        $mail->Password = 'QDNRjgJ6s8vUpPqK';
 
         // Email sender and recipients
         $mail->setFrom('info@travelsgolanka.com', 'Travel Go Lanka');
-        $mail->addAddress('nawanjanaenda@gmail.com', 'Tharindu');
-        $mail->addAddress('travelsgolanka@gmail.com'); // Additional recipient
+        // $mail->addAddress('nawanjanaenda@gmail.com', 'Tharindu');
+        $mail->addAddress('travelsgolanka@gmail.com');
+        $mail->addAddress('info@travelsgolanka.com');
         $mail->addReplyTo($email, $name); // User's email for reply
 
         // Email subject
