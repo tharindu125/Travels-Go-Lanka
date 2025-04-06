@@ -195,7 +195,7 @@
             <div class="carousel-container">
               <h2>Sri Lanka Tour Packages</h2>
               <p>Explore customized travel experiences across Sri Lanka.</p>
-              <a href="contact.html#get_quote" style="font-size: 18px; color: yellow;">Get Quote</a>
+               <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
             </div>
           </div>
 
@@ -204,7 +204,7 @@
             <div class="carousel-container">
               <h2>Wildlife & Safari Tours</h2>
               <p>Discover elephants, leopards, and more in Sri Lanka’s national parks.</p>
-              <a href="contact.html#get_quote" style="font-size: 18px; color: yellow; border: 2px solid yellow; padding: 5px 8px 5px 8px; border-radius: 15px;">Get Quote</a>
+              <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
             </div>
           </div>
 
@@ -213,7 +213,7 @@
             <div class="carousel-container">
               <h2>Cultural & Heritage Tours</h2>
               <p>Discover the rich history and vibrant culture of Sri Lanka with our Cultural & Heritage Tours.</p>
-              <a href="contact.html#get_quote" style="font-size: 18px; color: yellow;">Get Quote</a>
+               <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
             </div>
           </div>
 
@@ -222,7 +222,7 @@
             <div class="carousel-container">
               <h2>Beach & Water Adventures</h2>
               <p>Enjoy snorkeling, diving, and surfing in Sri Lanka’s stunning beaches.</p>
-              <a href="contact.html#get_quote" style="font-size: 18px; color: yellow;">Get Quote</a>
+               <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
             </div>
           </div>
 
@@ -231,7 +231,7 @@
             <div class="carousel-container">
               <h2>Hill Country & Tea Plantations</h2>
               <p>Experience breathtaking mountain views and world-famous Ceylon tea.</p>
-              <a href="contact.html#get_quote" style="font-size: 18px; color: yellow;">Get Quote</a>
+               <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
             </div>
           </div>
 
@@ -839,6 +839,102 @@
 
       </section>
 
+      <section id="get_quote" class="get_quote_main section">
+        <div class="container">
+          <div class="row gy-4 justify-content-between align-items-center">
+            <div class="col-lg-12">
+              <div class="info">
+                <h3>Ready for Adventure? Plan Your Sri Lanka Escape – Free Quote in a Day!</h3>
+                <p>Fill out the form below to get started on your unforgettable journey with Travels Go Lanka. Our team will respond within 24 hours to provide you with a personalized quote and help you plan your dream vacation.</p>
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phone" class="form-label">Phone Number (Optional)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="+94 71 234 5678">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="accommodation" class="form-label">Accommodation type *</label>
+                            <select class="form-select" id="accommodation" name="accommodation" required>
+                                <option selected>Select</option>
+                                <option>Guest houses</option>
+                                <option>2 star hotels & Guest houses</option>
+                                <option>3 star hotels & resorts</option>
+                                <option>4 star hotels & resorts</option>
+                                <option>5 star hotels & resorts</option>
+                                <option>Luxury boutiques</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="budget" class="form-label">Budget without airfare - USD ($) *</label>
+                            <select class="form-select" id="budget" name="budget" required>
+                                <option selected>Select</option>
+                                <option>Below 500$</option>
+                                <option>500$ - 1000$</option>
+                                <option>1000$ - 2000$</option>
+                                <option>2000$ - 3000$</option>
+                                <option>3000$ - 5000$</option>
+                                <option>Above 5000$</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="tourMonth" class="form-label">Tour Month *</label>
+                            <select class="form-select" id="tourMonth" name="tourMonth" required>
+                                <option selected>Select</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="tourDuration" class="form-label">Tour duration *</label>
+                            <input type="text" class="form-control" id="tourDuration" name="tourDuration" placeholder="7 Days" required>
+                        </div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="requirements" class="form-label">Your requirements (No of adults & kids, Interests) *</label>
+                        <textarea class="form-control" id="requirements" name="requirements" rows="2" required></textarea>
+                    </div>
+        
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        
+                <!-- Success Message -->
+                <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+                    ✅ Your inquiry has been sent successfully!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Testimonials Section -->
       <!-- <section class="testimonials-12 testimonials section" id="testimonials">
 
@@ -1032,4 +1128,25 @@
     once: false,    // Set to false for repeated animations on scroll
   });
 
+</script>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+  
+      let formData = new FormData(this); // Get form data
+      let xhr = new XMLHttpRequest(); 
+  
+      xhr.open("POST", "send_email.php", true); // Send request to PHP
+      xhr.onload = function() {
+          if (xhr.status === 200) {
+              document.getElementById("successMessage").style.display = "block"; // Show success message
+              document.getElementById("contactForm").reset(); // Clear the form
+          } else {
+              alert("❌ There was an error sending your request.");
+          }
+      };
+  
+      xhr.send(formData); // Send form data
+  });
 </script>
