@@ -93,50 +93,6 @@
     <!-- Preload LCP image (first hero image) -->
     <link rel="preload" as="image" href="assets/img/Travel/train.jpg">
 
-    <!-- Inline Critical CSS -->
-    <style>
-      /* Critical styles for above-the-fold content */
-      body {
-        margin: 0;
-        font-family: 'Open Sans', sans-serif;
-      }
-      header {
-        background: #000;
-        color: #fff;
-        padding: 10px 0;
-      }
-      .hero {
-        position: relative;
-        overflow: hidden;
-      }
-      .hero img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .carousel-container {
-        position: absolute;
-        bottom: 20%;
-        left: 5%;
-        color: white;
-        z-index: 2;
-      }
-      .get_quote {
-        display: inline-block;
-        padding: 8px 20px;
-        background: #ffa500;
-        color: white;
-        border-radius: 5px;
-        text-decoration: none;
-      }
-    </style>
-
-    <!-- Defer non-critical CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
-
     <!-- Mobile Optimization Tags -->
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -185,8 +141,8 @@
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
@@ -353,7 +309,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <a href="#recent-posts" class="readmore stretched-link d-flex justify-content-center mt-3"><span>View All Services</span><i class="bi bi-arrow-right"></i></a> -->
             </div>
           </div>
         </div>
@@ -370,9 +325,6 @@
               </div>
               <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="content-subtitle text-white opacity-50">Why Choose Travel Go Lanka?</h3>
-                <!-- <h2 class="content-title mb-4">
-                  More than <strong>5 years experience</strong> in Snorkeling & Diving industry
-                </h2> -->
                 <p class="opacity-50">
                   Experience unmatched adventures with expert guides, top-tier equipment, and a commitment to sustainability. Your unforgettable journey begins here!
                 </p>
@@ -982,73 +934,6 @@
         </div>
       </section>
 
-      <!-- Testimonials Section -->
-      <!-- <section class="testimonials-12 testimonials section" id="testimonials">
-
-        <div class="container section-title" data-aos="fade-up">
-          <h2><b>TESTIMONIALS</b></h2>
-          <p>What Our Guests Say: Hear from our delighted guests about their unforgettable adventures with us! Explore real stories of fun, safety, and exceptional service.</p>
-        </div>
-
-        <div class="testimonial-wrap">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 mb-4 mb-md-4">
-                <div class="testimonial">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" alt="Testimonial author">
-                  <blockquote>
-                    <p>
-                      “Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Provident deleniti iusto molestias, dolore vel fugiat
-                      ab placeat ea?”
-                    </p>
-                  </blockquote>
-                  <p class="client-name">James Smith</p>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4 mb-md-4">
-                <div class="testimonial">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" alt="Testimonial author">
-                  <blockquote>
-                    <p>
-                      “Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Provident deleniti iusto molestias, dolore vel fugiat
-                      ab placeat ea?”
-                    </p>
-                  </blockquote>
-                  <p class="client-name">Kate Smith</p>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4 mb-md-4">
-                <div class="testimonial">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" alt="Testimonial author">
-                  <blockquote>
-                    <p>
-                      “Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Provident deleniti iusto molestias, dolore vel fugiat
-                      ab placeat ea?”
-                    </p>
-                  </blockquote>
-                  <p class="client-name">Claire Anderson</p>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4 mb-md-4">
-                <div class="testimonial">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" alt="Testimonial author">
-                  <blockquote>
-                    <p>
-                      “Lorem ipsum dolor sit, amet consectetur adipisicing
-                      elit. Provident deleniti iusto molestias, dolore vel fugiat
-                      ab placeat ea?”
-                    </p>
-                  </blockquote>
-                  <p class="client-name">Dan Smith</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
     </main>
 
     <footer id="footer" class="footer dark-background">
@@ -1155,25 +1040,26 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script defer src="assets/vendor/php-email-form/validate.js"></script>
-    <script defer src="assets/vendor/aos/aos.js"></script>
-    <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
     <!-- Main JS File -->
-    <script defer src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 
   </body>
 
 </html>
 
 <script>
-  window.onload = function() {
-    if (typeof AOS !== 'undefined') {
-      AOS.init({ duration: 1500 });
-    }
-  };
+
+   AOS.init({
+    duration: 1500, // Animation duration
+    once: false,    // Set to false for repeated animations on scroll
+  });
+
 </script>
 
 <script>
