@@ -91,7 +91,7 @@
     <link rel="preload" href="https://unpkg.com/swiper/swiper-bundle.min.css" as="style">
 
     <!-- Preload LCP image (first hero image) -->
-    <link rel="preload" as="image" href="assets/img/Travel/train.jpg">
+    <link rel="preload" as="image" href="assets/img/Travel/train.webp" type="image/webp">
 
     <!-- Mobile Optimization Tags -->
     <meta name="theme-color" content="#000000">
@@ -193,13 +193,16 @@
         <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
           <div class="carousel-item active">
-            <img src="assets/img/Travel/train.jpg" alt="Sri-Lanka-Train" loading="lazy">
+            <picture>
+              <source srcset="assets/img/Travel/train.webp" type="image/webp">
+              <img src="assets/img/Travel/train.jpg" alt="Sri-Lanka-Train" loading="eager" width="1920" height="1080">
+            </picture>
             <div class="carousel-container">
               <h2>Sri Lanka Tour Packages</h2>
               <p>Explore customized travel experiences across Sri Lanka.</p>
-               <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
+              <a href="contact.html#get_quote" class="get_quote">Get Quote</a>
             </div>
-          </div>
+          </div>          
 
           <div class="carousel-item">
             <img src="assets/img/Travel/sri-lanka-leopard-asian.jpg" alt="sri-lanka-leopard-asian" loading="lazy">
@@ -264,9 +267,6 @@
               <div class="col-lg-3 col-md-6">
                 <div class="service-item">
                   <span class="number">01</span>
-                  <!-- <div class="service-item-icon">
-                    <img src="assets/img/Travel/yala_eleplants.jpg" alt="Night Snorkeling" height="150" />
-                  </div> -->
                   <div class="service-item-content">
                     <h3 class="service-heading" style="color: rgb(148, 148, 0);"><b>Yala National Park</b></h3>
                     <p class="mt-3">
